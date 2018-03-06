@@ -14,12 +14,12 @@ public class HomePage extends BasePage {
 	}
 	By usernamelocator=By.name("UserCode");
 	By passwordlocator=By.name("Password");
-	By loginbuttonlocator=By.xpath("/html/body/div/div[2]/div[2]/div/form/div[4]/input");
+	By loginbuttonlocator=By.xpath("//*[@id=\"loginForm\"]/div[1]/div/div[4]/button");
 	By userErrorlocator=By.xpath("/html/body/div[2]/div/form/div[1]/div/div/span");
 	By passwordErrorlocator=By.xpath("/html/body/div[2]/div/form/div[2]/div/div/span");
 	By userOrPasswordErrorlocator=By.xpath("/html/body/div[2]/div/form/div[1]/div/div/div/ul/li");
 	By autoLoginlocator=By.id("RememberMe");
-	By forgotPasswordlocator=By.linkText("Íü¼ÇÃÜÂë£¿");
+	By forgotPasswordlocator=By.linkText("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¿");
 	public WebElement getUserOrPasswordError() {
 		return this.driver.findElement(userOrPasswordErrorlocator);
 	}

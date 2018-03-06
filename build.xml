@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<project name="antTest" default="package" basedir=".">
+	 <property name="src" location="src"/>
+	  <property name="build" location="build"/>
+	  <property name="dist"  location="dist"/>
+	<property name="lib"  location="lib"/>
+	<property name="buildlib"  location="buildlib"/>
+	<target name="package" depends="complie">
+		<jar jarfile="build/antTest.jar" basedir="${build}/classes">
+			<manifest>
+			       <attribute name="Main-class" value="ant.com.AntTest"/>
+			 </manifest>
+		</jar>
+	</target>
+	<target name="complie" depends="copyfile">
+			<javac srcdir="${src}" destdir="${build}/classes" includeAntRuntime="no" />
+	</target>
+	<target name="copyfile" depends="init">
+		<copy todir="${build}/lib">
+			<fileset dir="${lib}"></fileset>
+		</copy>
+	</target>
+	<target name="init" depends="clean">
+		<mkdir dir="build"/>
+		<mkdir dir="build/lib"/>
+		<mkdir dir="build/classes"/>
+	</target>
+	<target name="clean">
+		<delete dir="build"/>	
+	</target>
+</project>

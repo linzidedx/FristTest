@@ -10,18 +10,18 @@ public class InformationCenterPage extends DashPage {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
-	By airportInformationLinkLocator=By.linkText("机场信息");
-	By airportDataLinkLocator=By.linkText("机场资料");
-	By planeInformationLinkLocator=By.linkText("飞机信息");
-	By flightDataLinkLocator=By.linkText("航线数据");
-	By flightCharacteristicLinkLocator=By.linkText("航线特点");
-	By planeFaultLinkLocator=By.linkText("飞机故障保留");
-	By flightchangeLinkLocator=By.linkText("航班调整");
-	By readyInformationLinkLocator=By.linkText("准备情况");
-	By flyTimeLinkLocator=By.linkText("飞行时间");
-	By flyPlanLinkLocator=By.linkText("飞行计划（排班情况）");
-	By reservationInformationLinkLocator=By.linkText("订座信息");
-	By weaterInformationLinkLocator=By.linkText("气象资料");
+	By airportInformationLinkLocator=By.linkText("鏈哄満淇℃伅");
+	By airportDataLinkLocator=By.linkText("鏈哄満璧勬枡");
+	By planeInformationLinkLocator=By.linkText("椋炴満淇℃伅");
+	By flightDataLinkLocator=By.linkText("鑸嚎鏁版嵁");
+	By flightCharacteristicLinkLocator=By.linkText("鑸嚎鐗圭偣");
+	By planeFaultLinkLocator=By.linkText("椋炴満鏁呴殰淇濈暀");
+	By flightchangeLinkLocator=By.linkText("鑸彮璋冩暣");
+	By readyInformationLinkLocator=By.linkText("鍑嗗鎯呭喌");
+	By flyTimeLinkLocator=By.linkText("椋炶鏃堕棿");
+	By flyPlanLinkLocator=By.linkText("椋炶璁″垝锛堟帓鐝儏鍐碉級");
+	By reservationInformationLinkLocator=By.linkText("璁㈠骇淇℃伅");
+	By weaterInformationLinkLocator=By.linkText("姘旇薄璧勬枡");
 	
 	public WebElement getAirportInformationLink() {
 		return this.driver.findElement(airportInformationLinkLocator);

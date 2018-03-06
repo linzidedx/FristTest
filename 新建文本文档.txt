@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<project name="AntProject" basedir="." default="zip">  
+  
+    <!-- 定义时间戳 -->  
+    <tstamp></tstamp>  
+      
+    <property name="classes" location="./build/classes"/>  
+    <property name="jarpath" location="./build/jar"/>  
+    <property name="warpath" location="./build/war"/>  
+    <property name="zippath" location="./build/zip"/>  
+    <property name="javadoc" location="./build/javadoc"/>  
+    <property name="windowtitile" value="Ant Project Title"/>  
+    <property name="jarfile" location="${jarpath}/AntProject_${DSTAMP}.jar"/>  
+    <property name="warfile" location="${warpath}/AntProject_${DSTAMP}.war"/>  
+    <property name="zipfile" location="${zippath}/AntProject_${DSTAMP}.zip"/>  
+  
+    <target name="init">  
+        <mkdir dir="${classes}"/>  
+        <mkdir dir="${jarpath}"/>  
+        <mkdir dir="${warpath}"/>  
+        <mkdir dir="${zippath}"/>  
+        <mkdir dir="${javadoc}"/>  
+    </target>  
+      
+    <!--  
+    如果有额外的jar包，可以再这里指定，再下面的classpath处进行引用  
+    <path id="classpath">  
+        <pathelement path="your jar jar file path"/>  
+    </path>  
+    -->  
+      
+    <!-- 编译java源文件 -->  
+    <target name="compile" depends="init">  
+        <javac srcdir="./src" destdir="${classes}" includeantruntime="false">  
+            <!-- 
+                <classpath refid="classpath"/> 
+            -->  
+        </javac>  
+    </target>  
+      
+    <!-- 生成javadoc文档 -->  
+    <target name="javadoc" depends="init">  
+        <javadoc sourcepath="./src" destdir="${javadoc}" encoding="utf-8" charset="gb2312" windowtitle="${windowtitile}">  
+            <!-- 
+                <classpath refid="classpath"/> 
+            -->  
+        </javadoc>  
+    </target>  
+      
+    <!-- 打成jar包 -->  
+    <target name="jar" depends="compile">  
+        <jar destfile="${jarfile}" basedir="${classes}">  
+            <!-- Manifest.mf内容 设置主方法,生成jar包可以直接双击运行 -->  
+            <manifest>  
+                <attribute name="Main-Class" value="com.ant.MainClass"/>  
+            </manifest>  
+        </jar>  
+    </target>  
+      
+    <!-- 打成war包     这里不是一个web工程，找不到WEB-INFO/web.xml文件，添加属性needxmlfile=false即可 -->  
+    <target name="war" depends="compile">  
+        <war destfile="${warfile}" basedir="${classes}" needxmlfile="false"></war>  
+    </target>  
+      
+    <!-- 将整个工程打成一个zip压缩包 -->  
+    <target name="zip" depends="javadoc,jar,war">  
+        <zip destfile="${zipfile}" basedir="."></zip>  
+    </target>  
+</project>  
